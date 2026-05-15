@@ -31,25 +31,34 @@ This project depends on:
    cd ~; git clone https://github.com/alexpott/d8githooks.git
    ````
    
-1. Navigate to the `.git/hooks` directory inside the Drupal 8 clone from which you commit patches 
+2. Navigate to the `.git/hooks` directory inside the Drupal 8 clone from which you commit patches
 
    ````
    cd ~/Sites/8.x/.git/hooks
    ````
 
-1. Create symlinks to pre-commit and post-commit files:
-   
-  ```
-  ln -sfn ~/d8githooks/pre-commit pre-commit;
-  ln -sfn ~/d8githooks/post-commit post-commit;
-  ````
+3. Create symlinks to pre-commit and post-commit files:
 
-1. Mark the hooks as executable. 
+   ````
+   ln -sfn ~/d8githooks/pre-commit pre-commit;
+   ln -sfn ~/d8githooks/post-commit post-commit;
+   ````
+
+4. Mark the hooks as executable.
 
    ````
    chmod u+x pre-commit; chmod u+x post-commit
    ````
 
+5. Add the git-drmr command to your path.
+
+   ````
+   cd ~/PATH/IN/$PATH
+   ln -sfn ~/d8githooks/git-drmr git-drmr
+   chmod a+x git-drmr
+   ````
+
+### Testing the set up
 To test that it's working, introduce a file permissions error and then attempt to commit a text change:
 
 ````
@@ -66,6 +75,17 @@ You should see the error:
 ````
 git pre-commit check failed: file core/core.services.yml should be 644 not 777
 ````
+
+## Using git-drmr
+
+1. Goto Drupal checkout on a branch you want to commit to.
+2. Get the merge request ID that you want to commit from drupal.org.
+3. Decide on the issue type - see https://www.drupal.org/node/3586390
+4. Decide if there are any additional branches to merge to
+5. Run the command:
+   ````
+   git drmr <issue_type> <merge_request_id> [additional_branches]
+   ````
 
 ## Troubleshooting
 
