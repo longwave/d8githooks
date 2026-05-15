@@ -53,7 +53,7 @@ This project depends on:
 5. Add the git-drmr command to your path.
 
    ````
-   cd ~/PATH/IN/$PATH
+   cd ~/bin # Or another directory in your path.
    ln -sfn ~/d8githooks/git-drmr git-drmr
    chmod a+x git-drmr
    ````
@@ -78,7 +78,7 @@ git pre-commit check failed: file core/core.services.yml should be 644 not 777
 
 ## Using git-drmr
 
-1. Goto Drupal checkout on a branch you want to commit to.
+1. Go to Drupal checkout on a branch you want to commit to.
 2. Get the merge request ID that you want to commit from drupal.org.
 3. Decide on the issue type - see https://www.drupal.org/node/3586390
 4. Decide if there are any additional branches to merge to
