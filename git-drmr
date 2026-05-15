@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if [ $# -lt 2 ]; then
-  echo "Usage: git d8mr <issue_type> <merge_request_id> [additional_branches]" 1>&2
+  echo "Usage: git drmr <issue_type> <merge_request_id> [additional_branches]" 1>&2
   exit 1
 fi
 
@@ -60,7 +60,7 @@ echo "$MESSAGE"
 echo
 git commit -m "$MESSAGE"
 
-branches=$(echo $3 | tr "," "\n")
+branches=$(echo "${3:-}" | tr "," "\n")
 first_branch=`git rev-parse --abbrev-ref HEAD`
 commit_hash=`git log -n 1 --pretty=format:"%H"`
 short_commit_hash=`git log -n 1 --pretty=format:"%h"`
@@ -81,4 +81,8 @@ done
 git checkout $first_branch
 echo "$push_message"
 
-echo "$thanks_message. Thanks!" | pbcopy
+if command -v pbcopy &>/dev/null; then
+  echo "$thanks_message. Thanks!" | pbcopy
+else
+  echo "$thanks_message. Thanks!"
+fi
