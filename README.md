@@ -10,15 +10,17 @@ _How do I, as a developer, start working on the project?_
 This project depends on:
 
 1. [git] (https://git-scm.com/downloads)
-1. [composer](https://getcomposer.org/download/)
-1. Drupal 10
-1. Running composer install in the root directory of the repository you have checked out
-1. Running yarn install in the core directory of the repository you have checked out
+2. [composer](https://getcomposer.org/download/)
+3. Drupal 10
+4. Running composer install in the root directory of the repository you have checked out
+5. Running yarn install in the core directory of the repository you have checked out
+6. jq https://jqlang.org/download/
+7. curl
 
 ### Optional dependencies
 1. [Homebrew](http://brew.sh/) (You can use homebrew to install many of the dependencies above.)
-1. pbcopy & pbpaste
-1. cowsay (```brew install cowsay```)
+2. pbcopy & pbpaste
+3. cowsay (```brew install cowsay```)
 
 
 ## How to install
